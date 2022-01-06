@@ -3,14 +3,14 @@ version: '3'
 services:
   server:
     build:
-      context: .
-      dockerfile: ./server/Dockerfile
+      context: ./server
+      dockerfile: ./Dockerfile
     image: questions_and_answers_server
     container_name: server_django
     depends_on:
       - db
     volumes:
-      - .:/app
+      - ./server:/app
     env_file:
       - ./server/.envs/.postgres
     ports:
@@ -20,6 +20,8 @@ services:
     image: postgres
     volumes:
       - db_data:/var/lib/postgresql/data
+    env_file:
+      - ./server/.envs/.postgres
 
 volumes:
   db_data: {}
