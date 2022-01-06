@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./server/Dockerfile
+    image: questions_and_answers_server
+    container_name: server_django
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    env_file:
+      - ./server/.envs/.postgres
+    ports:
+      - "8000:8000"
+
+  db:
+    image: postgres
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data: {}
