@@ -15,20 +15,19 @@ class Answer(QAModel):
 
     Answer made for a user.
     """
-    # question = Question
-    answered_by = models.ForeignKey(
-        'users.User',
-        on_delete=models.CASCADE,
-        help_text='User who has created the answer.',
-        related_name='answered_by',
-        null=True
-    )
 
     question_to_answer = models.ForeignKey(
         'questions.Question',
         on_delete=models.CASCADE,
         help_text='Question to answer.',
         related_name='question_to_answer',
+        null=True
+    )
+    answered_by = models.ForeignKey(
+        'users.User',
+        on_delete=models.CASCADE,
+        help_text='User who has created the answer.',
+        related_name='answered_by',
         null=True
     )
 
