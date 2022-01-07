@@ -1,12 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import {useState, useEffect} from 'react';
+import { Channel } from './Components/Channel';
 
 function App() {
+
+  const [initialState, setState] = useState([])
+
+  const url = 'http://localhost:8000/api/answers/1'
+
+  useEffect(()=>{
+    fetch(url).then(response => {
+      if(response.status === 200){
+        return response.json()
+      }
+    }).then(data => setState(data))
+  })
+
   return (
     <div className="App">
-      <h1>
-        It works
-      </h1>
+      <Channel data={initialState}/>
     </div>
   );
 }
