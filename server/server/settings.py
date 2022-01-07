@@ -35,7 +35,7 @@ DJANGO_APPS = [
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
-    "django.contrib.sites",
+    # "django.contrib.sites",
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.admin",
@@ -47,8 +47,10 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'server.questions.apps.QuestionsAppConfig',
-    'server.users.apps.UsersAppConfig',
+    # 'server.questions.apps.QuestionsAppConfig',
+    'server.questions',
+    # 'server.users.apps.UsersAppConfig',
+    'server.users',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -85,6 +87,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'server.wsgi.application'
+
+# Users and Authentication
+AUTH_USER_MODEL = 'users.User'
+
 
 
 # Database
