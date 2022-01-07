@@ -7,13 +7,14 @@ from django.db.models.deletion import CASCADE
 # utilities
 from server.utils.models import QAModel
 
+
 class Profile(QAModel):
     """Profile model.
-    
+
     A profile holds a user's public data.
     """
 
-    users = models.OneToOneField('users.User', on_delete=models.CASCADE)
+    user = models.OneToOneField('users.User', on_delete=models.CASCADE)
 
     questions_asked = models.PositiveIntegerField(default=0)
     answers_made = models.PositiveIntegerField(default=0)
