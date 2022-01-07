@@ -13,7 +13,7 @@ class QuestionViewSet(viewsets.ViewSet):
     def list(self, request):  # /api/questions
         questions = Question.objects.all()
         serializer = QuestionSerializer(questions, many=True)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):  # /api/questions
         serializer = QuestionSerializer(data=request.data)
@@ -24,7 +24,7 @@ class QuestionViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None): # /api/questions/<str:id>
         question = Question.objects.get(id=pk)
         serializer = QuestionSerializer(question)
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def update(self, request, pk=None): # /api/questions/<str:id>
         question = Question.objects.get(id=pk)
