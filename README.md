@@ -19,3 +19,8 @@ Crear el proyecto
 ```
 docker-compose up --build -d
 ```
+## Testing
+Para correr los test utilizar:
+```
+docker-compose run --rm server pytest
+```
