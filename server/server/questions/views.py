@@ -1,5 +1,5 @@
 # Django Rest Framework
-from rest_framework import viewsets, status
+from rest_framework import serializers, viewsets, status
 from rest_framework.response import Response
 
 # Models
@@ -22,7 +22,9 @@ class QuestionViewSet(viewsets.ViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None): # /api/questions/<str:id>
-        pass
+        question = Question.objects.get(id=pk)
+        serializer = QuestionSerializer(question)
+        return Response(serializer.data)
 
     def update(self, request, pk=None): # /api/questions/<str:id>
         pass
