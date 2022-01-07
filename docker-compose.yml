@@ -16,6 +16,19 @@ services:
     ports:
       - "8000:8000"
 
+  client:
+    build:
+      context: ./client/web-app
+      dockerfile: ./Dockerfile
+    image: questions_and_answers_client
+    container_name: client_react
+    depends_on:
+      - seerver
+    volumes:
+      - ./client/web-app:/webapp
+    ports:
+      - "3000:3000"
+
   db:
     image: postgres
     volumes:
