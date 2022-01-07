@@ -16,6 +16,14 @@ class Answer(QAModel):
     Answer made for a user.
     """
     # question = Question
+    answered_by = models.ForeignKey(
+        'users.User',
+        on_delete=models.CASCADE,
+        help_text='User who has created the answer.',
+        related_name='answered_by',
+        null=True
+    )
+
     detail = models.CharField(
         'Answer detail',
         default='detail', 

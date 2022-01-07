@@ -17,7 +17,7 @@ class Question(QAModel):
         'users.User',
         on_delete=models.CASCADE,
         help_text='User who has created the question',
-        related_name='created_by',
+        related_name='asked_by',
         null=True
     )
 
