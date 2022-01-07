@@ -13,11 +13,15 @@ class Question(QAModel):
     Questions asked for user.
     """
 
-    title = models.CharField('question title', max_length=140)
-    slug_name = models.SlugField(unique=True, max_length=40)
+    title = models.CharField(
+        'question title',
+        default='title', 
+        max_length=140
+    )
+    # slug_name = models.SlugField(unique=True, max_length=40)
     detail = models.CharField(
         'Question detail',
-        default='', 
+        default='detail', 
         max_length=500
     )
     answers_made = models.PositiveIntegerField(default=0)

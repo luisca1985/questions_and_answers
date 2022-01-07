@@ -18,7 +18,7 @@ class Answer(QAModel):
     # question = Question
     detail = models.CharField(
         'Answer detail',
-        default='', 
+        default='detail', 
         max_length=500
     )
     is_correct =  models.BooleanField(
