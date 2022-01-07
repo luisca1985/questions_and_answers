@@ -24,12 +24,20 @@ class Answer(QAModel):
         null=True
     )
 
+    question_to_answer = models.ForeignKey(
+        'questions.Question',
+        on_delete=models.CASCADE,
+        help_text='Question to answer.',
+        related_name='question_to_answer',
+        null=True
+    )
+
     detail = models.CharField(
         'Answer detail',
-        default='detail', 
+        default='detail',
         max_length=500
     )
-    is_correct =  models.BooleanField(
+    is_correct = models.BooleanField(
         'this is the correct answer',
         default=False,
         help_text='This is the correct answer select by the user who asked the question.'
