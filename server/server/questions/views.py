@@ -1,5 +1,5 @@
 # Django Rest Framework
-from rest_framework import serializers, viewsets, status
+from rest_framework import viewsets, status
 from rest_framework.response import Response
 
 # Models

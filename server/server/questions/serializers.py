@@ -1,5 +1,5 @@
 #  Django Rest Framework
-from rest_framework import fields, serializers
+from rest_framework import serializers
 
 from server.questions.models import Question
 
