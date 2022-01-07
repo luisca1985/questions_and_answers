@@ -7,7 +7,7 @@ Clonar el proyecto
 git clone https://github.com/luisca1985/questions_and_answers.git
 ```
 
-Ingresar a la carpeta dle proyecto
+Ingresar a la carpeta del proyecto
 
 ```
 cd questions_and_answers
