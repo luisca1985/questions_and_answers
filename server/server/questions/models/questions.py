@@ -13,7 +13,7 @@ class Question(QAModel):
     Questions asked for user.
     """
 
-    created_by = models.ForeignKey(
+    asked_by = models.ForeignKey(
         'users.User',
         on_delete=models.CASCADE,
         help_text='User who has created the question',

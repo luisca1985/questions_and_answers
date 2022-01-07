@@ -13,9 +13,9 @@ from server.questions.models import Question, Answer
 class QuestionAdmin(admin.ModelAdmin):
     """Question model admin."""
 
-    list_display = ('created_by','title','detail', 'answers_made', 'is_resolved', 'is_closed', 'is_public')
-    search_fields = ('created_by__username','created_by__email')
-    list_filter = ('created_by__username','created_by__email','is_resolved', 'is_closed', 'is_public', 'created', 'modified')
+    list_display = ('asked_by','title','detail', 'answers_made', 'is_resolved', 'is_closed', 'is_public')
+    search_fields = ('asked_by__username','asked_by__email')
+    list_filter = ('asked_by__username','asked_by__email','is_resolved', 'is_closed', 'is_public', 'created', 'modified')
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
