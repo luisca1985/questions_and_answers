@@ -21,9 +21,10 @@ class QuestionAdmin(admin.ModelAdmin):
 class AnswerAdmin(admin.ModelAdmin):
     """Answer model admin."""
 
-    list_display = ('detail', 'is_correct' )
-    # search_fields = ('question__title',)
-    list_filter = (
+    list_display = ('answered_by','detail', 'is_correct' )
+    search_fields = ('answered_by__username','answered_by__email'
+    # 'question__title',
+    )
+    list_filter = ('answered_by__username','answered_by__email','is_correct', 'created', 'modified',
         # 'question__title',
-        'is_correct',
-        )
+    )
