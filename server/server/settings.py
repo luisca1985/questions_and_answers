@@ -169,3 +169,11 @@ CORS_URLS_REGEX = r"^/api/.*$"
 # Your stuff...
 
 #CORS_ALLOW_ALL_ORIGINS: True
+
+"""
+With these settings, tests run faster.
+"""
+# GENERAL
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
+TEST_RUNNER = "django.test.runner.DiscoverRunner"
