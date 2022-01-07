@@ -27,7 +27,11 @@ class QuestionViewSet(viewsets.ViewSet):
         return Response(serializer.data)
 
     def update(self, request, pk=None): # /api/questions/<str:id>
-        pass
+        question = Question.objects.get(id=pk)
+        serializer = QuestionSerializer(instance=question, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
     def destroy(self, request, pk=None): # /api/questions/<str:id>
         pass
