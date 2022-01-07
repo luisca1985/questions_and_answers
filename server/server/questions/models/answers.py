@@ -16,7 +16,11 @@ class Answer(QAModel):
     Answer made for a user.
     """
     # question = Question
-    detail = models.CharField('Answer detail', max_length=500)
+    detail = models.CharField(
+        'Answer detail',
+        default='', 
+        max_length=500
+    )
     is_correct =  models.BooleanField(
         'this is the correct answer',
         default=False,

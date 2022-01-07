@@ -15,7 +15,11 @@ class Question(QAModel):
 
     title = models.CharField('question title', max_length=140)
     slug_name = models.SlugField(unique=True, max_length=40)
-    detail = models.CharField('Question detail', max_length=500)
+    detail = models.CharField(
+        'Question detail',
+        default='', 
+        max_length=500
+    )
     answers_made = models.PositiveIntegerField(default=0)
     is_resolved =  models.BooleanField(
         'resolved question',
