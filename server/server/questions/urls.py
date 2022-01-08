@@ -16,7 +16,7 @@ urlpatterns = [
         'post':'create',
 
     })),
-    path('answers/<str:pk>', QuestionViewSet.as_view({
+    path('answers/<str:pk>', AnswerViewSet.as_view({
         'get':'retrieve',
         'put':'update',
         'delete':'destroy',
