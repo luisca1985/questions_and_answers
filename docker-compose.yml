@@ -5,8 +5,8 @@ services:
     build:
       context: ./server
       dockerfile: ./Dockerfile
-    image: questions_and_answers_server
-    container_name: server_django
+    image: qa_django_image
+    container_name: qa_django_container
     depends_on:
       - db
     volumes:
@@ -20,12 +20,14 @@ services:
     build:
       context: ./client/web-app
       dockerfile: ./Dockerfile
-    image: questions_and_answers_client
-    container_name: client_react
+    image: qa_react_image
+    container_name: qa_react_container
     depends_on:
-      - seerver
+      - server
     volumes:
-      - ./client/web-app:/webapp
+      - ./client/web-app/src:/webapp/src
+      - ./client/web-app/public:/webapp/public
+      - ./client/web-app/README.md:/webapp/README.md
     ports:
       - "3000:3000"
 
