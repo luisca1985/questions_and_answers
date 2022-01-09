@@ -18,7 +18,7 @@ function App() {
 
   const questionList = initialState
   const questions = questionList.map((question) =>
-    <Question data={question}/>
+    <Question  key={question.id} data={question}/>
   );
 
   return (
