@@ -2,34 +2,43 @@ version: '3'
 
 services:
   server:
-    build:
-      context: ./server
-      dockerfile: ./Dockerfile
+    build: ./server
     image: qa_django_image
     container_name: qa_django_container
-    depends_on:
-      - db
+    expose:
+      - ${APP_SERVER_PORT}
+    environment:
+      - API_HOST=${API_HOST}
+      - APP_SERVER_PORT=${APP_SERVER_PORT}
+    ports:
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
     volumes:
       - ./server:/app
+    command: python3 manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - db
     env_file:
       - ./server/.envs/.postgres
-    ports:
-      - "8000:8000"
 
   client:
-    build:
-      context: ./client/web-app
-      dockerfile: ./Dockerfile
+    build: ./client/web-app
     image: qa_react_image
     container_name: qa_react_container
+    environment:
+      - REACT_APP_PORT=${REACT_APP_PORT}
+    expose:
+      - ${REACT_APP_PORT}
+    ports:
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
+    links:
+      - server
+    command: npm run start
     depends_on:
       - server
     volumes:
       - ./client/web-app/src:/webapp/src
       - ./client/web-app/public:/webapp/public
       - ./client/web-app/README.md:/webapp/README.md
-    ports:
-      - "3000:3000"
 
   db:
     image: postgres
