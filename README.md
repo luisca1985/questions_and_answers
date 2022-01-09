@@ -24,6 +24,42 @@ Crear el proyecto
 ```
 docker-compose up --build -d
 ```
+## Crear los modelos en las bases de datos de la API
+Realizar la migración de los modelos
+
+```
+docker-compose run --rm server python manage.py migrate
+```
+
+## Consola de Administración
+### Crear el usurio de administración
+Ingresa el siguiente comando para crear el usuario de administración
+```
+docker-compose run --rm server python manage.py createsuperuser
+```
+
+El sistema te solicitará los siguientes datos, necesarios para crear el usuario.
+```
+Email_address: <INGRESA_CORREO_ELECTRONICO>
+Username: <INGRESA_USUARIO>
+First name: <INGRESA_NOMBRE>
+Last name: <INGRESA_APELLIDO>
+Password: <INGRESA_CONTRASEÑA>
+Password (again): <INGRESA_CONTRASEÑA_NUEVAMENTE>
+Superuser created successfully.
+```
+### Ingresar a la consola de administración
+
+```http
+http://localhost:8000/admin
+```
+Se desplegará la ventana de inicio de sesión de la consola de administración, dentro de la cual debes ingresar el correo electrónico y contraseña del usuario de administración creado previamente.
+
+![alt](readmepics/admin_login.png)
+
+Un vez ingreses a la consola de administración puedes gestionar la información del proyecto.
+![alt](readmepics/admin_main_board.png)
+
 ## Testing
 Para correr los test utilizar:
 ```
