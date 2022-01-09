@@ -6,13 +6,11 @@ function App() {
 
   const [initialState, setState] = useState([])
 
-  // const url = '/api/answers/1'
-  const url = '/api'
+  const url = '/api/questions/1'
 
   useEffect(()=>{
     fetch(url).then(response => {
       if(response.status === 200){
-        console.log(response)
         return response.json()
       }
     }).then(data => setState(data))
