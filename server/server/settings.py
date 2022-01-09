@@ -30,7 +30,7 @@ DEBUG = True
 # When we are working as API service with name 'service', and we are working
 # we are traying to connect from a client, which redirect to http://service:<PORT>
 # we need to allow 'server' as a host, otherwise django will generate a Bad Request 400
-ALLOWED_HOSTS = ['server']
+ALLOWED_HOSTS = ['localhost','server']
 
 
 # APPS
