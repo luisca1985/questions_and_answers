@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-k_*mohw4+uj!$*piy0)vdmww7$w#t&_v*6@3z8x!*z-q1eilo5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# IMPORTANT
+# When we are working as API service with name 'service', and we are working
+# we are traying to connect from a client, which redirect to http://service:<PORT>
+# we need to allow 'server' as a host, otherwise django will generate a Bad Request 400
+ALLOWED_HOSTS = ['localhost','server']
 
 
 # APPS
@@ -161,6 +165,11 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": (
         # "rest_framework.permissions.IsAuthenticated",
+    ),
+
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+        # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
 }
 

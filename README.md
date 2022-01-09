@@ -1,4 +1,9 @@
-## Questions and Answers
+# Questions and Answers
+
+## Prerrequisitos
+- [Python3.10](https://www.python.org/downloads/)
+- [Node](https://nodejs.org/es/download/)
+- [Docker](https://docs.docker.com/get-docker/)
 
 ## Iniciar con Docker
 Clonar el proyecto

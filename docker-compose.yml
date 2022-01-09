@@ -5,8 +5,8 @@ services:
     build:
       context: ./server
       dockerfile: ./Dockerfile
-    image: questions_and_answers_server
-    container_name: server_django
+    image: qa_django_image
+    container_name: qa_django_container
     depends_on:
       - db
     volumes:
@@ -15,6 +15,23 @@ services:
       - ./server/.envs/.postgres
     ports:
       - "8000:8000"
+
+  client:
+    build:
+      context: ./client/web-app
+      dockerfile: ./Dockerfile
+    image: qa_react_image
+    container_name: qa_react_container
+    depends_on:
+      - server
+    volumes:
+      - ./client/web-app/src:/webapp/src
+      - ./client/web-app/public:/webapp/public
+      - ./client/web-app/README.md:/webapp/README.md
+      - ./client/web-app/package.json:/webapp/package.json
+      - ./client/web-app/package-lock.json:/webapp/package-lock.json
+    ports:
+      - "3000:3000"
 
   db:
     image: postgres
