@@ -1,6 +1,6 @@
 import './App.css';
 import {useState, useEffect} from 'react';
-import { Channel } from './Components/Channel';
+import { Question } from './Components/Question';
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      <Channel data={initialState}/>
+      <Question data={initialState}/>
     </div>
   );
 }
