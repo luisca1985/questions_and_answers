@@ -6,7 +6,7 @@ function App() {
 
   const [initialState, setState] = useState([])
 
-  const url = '/api/questions/1'
+  const url = '/api/questions'
 
   useEffect(()=>{
     fetch(url).then(response => {
@@ -16,9 +16,14 @@ function App() {
     }).then(data => setState(data))
   })
 
+  const questionList = initialState
+  const questions = questionList.map((question) =>
+    <Question data={question}/>
+  );
+
   return (
-    <div className="App">
-      <Question data={initialState}/>
+    <div>
+      {questions}
     </div>
   );
 }
