@@ -8,7 +8,7 @@ WORKDIR ${WEB_APP_HOME}
 # Packages are installed here to ensure they will be cached.
 COPY ./package.json ./
 
-COPY ./package-lock.json ./
+# COPY ./package-lock.json ./
 
 RUN npm install
 
