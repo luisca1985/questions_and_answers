@@ -30,8 +30,10 @@ services:
       - ./client/web-app/README.md:/webapp/README.md
       - ./client/web-app/package.json:/webapp/package.json
       # - ./client/web-app/package-lock.json:/webapp/package-lock.json
+    expose:
+      - 3000
     ports:
-      - "3000:3000"
+      - "80:3000"
 
   db:
     image: postgres
