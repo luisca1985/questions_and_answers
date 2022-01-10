@@ -1,10 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Nav from './Components/Nav';
 import Header from './Components/Header';
 import Display from './Components/Display';
 import Questions from './Modules/Questions';
+import {BrowserRouter, Routes, Route} from "react-router-dom"
 
 function App() {
   return (
@@ -16,7 +16,11 @@ function App() {
       </div>
       <main className="container">
         <Display/>
-        <Questions/>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/questions' element= { <Questions />} />
+          </Routes>
+        </BrowserRouter>
         
         <div className="row g-5">
           <div className="col-md-8">
