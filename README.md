@@ -5,7 +5,8 @@
 - [Node](https://nodejs.org/es/download/)
 - [Docker](https://docs.docker.com/get-docker/)
 
-## Iniciar con Docker
+## Configuración Inicial
+### Iniciar con Docker
 Clonar el proyecto
 
 ```
@@ -18,13 +19,13 @@ Ingresar a la carpeta del proyecto
 cd questions_and_answers
 ```
 
-## Crear el proyecto con Docker y Docker Compose
+### Crear el proyecto con Docker y Docker Compose
 Crear el proyecto
 
 ```
 docker-compose up --build -d
 ```
-## Crear los modelos en las bases de datos de la API
+### Crear los modelos en las bases de datos de la API
 Realizar la migración de los modelos
 
 ```
