@@ -16,20 +16,22 @@ const Questions = () => {
     })
 
     return (
-      <div className="row">
-        {
-          questionList.map((question:QuestionInterface) =>
-            <div className="col-md-6">
-              <BriefInfoBlock  
-                key={question.id} 
-                tag="" 
-                title={question.title} 
-                date='Nov 12'
-                detail={ question.detail }/>
-            </div>
-          )
-        }
-      </div>
+      <>
+        <div className="row">
+          {
+            questionList.map((question:QuestionInterface) =>
+              <div className="col-md-6">
+                <BriefInfoBlock  
+                  key={question.id} 
+                  tag="" 
+                  title={question.title} 
+                  date='Nov 12'
+                  detail={ question.detail }/>
+              </div>
+            )
+          }
+        </div>
+      </>
     );
 };
 
