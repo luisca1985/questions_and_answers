@@ -5,22 +5,23 @@ import Header from './Components/Header';
 import Display from './Components/Display';
 import Questions from './Modules/Questions';
 import {BrowserRouter, Routes, Route} from "react-router-dom"
+import QuestionsCreate from './Modules/QuestionsCreate';
 
 function App() {
   return (
     <div className="App">
       {/* view-source:https://getbootstrap.com/docs/5.1/examples/blog/ */}
+      <BrowserRouter>
       <div className="container">
-        <Header/>
+        <Header title="Questions and Answers"/>
         <Nav/>
       </div>
       <main className="container">
-        <Display/>
-        <BrowserRouter>
+        {/* <Display/> */}
           <Routes>
             <Route path='/questions' element= { <Questions />} />
+            <Route path='/questions/create' element= { <QuestionsCreate />} />
           </Routes>
-        </BrowserRouter>
         
         <div className="row g-5">
           <div className="col-md-8">
@@ -195,6 +196,8 @@ function App() {
           <a href="#">Back to top</a>
         </p>
       </footer>
+    
+    </BrowserRouter>
     </div>
   );
 }
