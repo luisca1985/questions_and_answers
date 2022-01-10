@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {FC, InputHTMLAttributes} from 'react';
 
-const Header = () => {
+interface HeaderProps extends InputHTMLAttributes<HTMLInputElement>{
+    title: string;
+}
+const Header:FC<HeaderProps> = ({title}) => {
     return (
         <header className="blog-header py-3">
             <div className="row flex-nowrap justify-content-between align-items-center">
@@ -8,7 +11,7 @@ const Header = () => {
                     <a className="link-secondary" href="#">Subscribe</a>
                 </div>
                 <div className="col-4 text-center">
-                    <a className="blog-header-logo text-dark" href="#">Large</a>
+                    <a className="blog-header-logo text-dark" href="#">{title}</a>
                 </div>
                 <div className="col-4 d-flex justify-content-end align-items-center">
                     <a className="link-secondary" href="#" aria-label="Search">
