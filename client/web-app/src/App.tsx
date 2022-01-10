@@ -4,8 +4,9 @@ import Nav from './Components/Nav';
 import Header from './Components/Header';
 import Display from './Components/Display';
 import Questions from './Modules/Questions';
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route, Outlet} from "react-router-dom"
 import QuestionsCreate from './Modules/QuestionsCreate';
+import QuestionsAnswers from './Modules/QuestionsAnswers';
 
 function App() {
   return (
@@ -19,8 +20,10 @@ function App() {
       <main className="container">
         {/* <Display/> */}
           <Routes>
+            <Route path='/' element={ <Outlet /> }/>
             <Route path='/questions' element= { <Questions />} />
             <Route path='/questions/create' element= { <QuestionsCreate />} />
+            <Route path='/questions/:id/answers' element= { <QuestionsAnswers />} />
           </Routes>
         
         <div className="row g-5">

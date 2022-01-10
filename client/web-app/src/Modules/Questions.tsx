@@ -26,7 +26,8 @@ const Questions = () => {
                   tag="" 
                   title={question.title} 
                   date='Nov 12'
-                  detail={ question.detail }/>
+                  detail={ question.detail }
+                  url={ `/questions/${ question.id }/answers` }/>
               </div>
             )
           }
