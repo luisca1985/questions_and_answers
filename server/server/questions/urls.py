@@ -5,15 +5,9 @@ from server.questions.views import QuestionViewSet, AnswerViewSet
 
 
 urlpatterns = [
-    path('questions/<str:pk>', QuestionViewSet.as_view({
-        'get':'retrieve',
-        'put':'update',
-        'delete':'destroy',
-        
-    })),
-    path('questions', QuestionViewSet.as_view({
-        'get':'list',
-        'post':'create',
+    
+    path('questions/<str:pk>/answers', AnswerViewSet.as_view({
+        'get':'list_for_question',
 
     })),
     path('answers/<str:pk>', AnswerViewSet.as_view({
@@ -23,6 +17,17 @@ urlpatterns = [
         
     })),
     path('answers', AnswerViewSet.as_view({
+        'get':'list',
+        'post':'create',
+
+    })),
+    path('questions/<str:pk>', QuestionViewSet.as_view({
+        'get':'retrieve',
+        'put':'update',
+        'delete':'destroy',
+        
+    })),
+    path('questions', QuestionViewSet.as_view({
         'get':'list',
         'post':'create',
 
