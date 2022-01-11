@@ -49,6 +49,15 @@ Password: <INGRESA_CONTRASEÑA>
 Password (again): <INGRESA_CONTRASEÑA_NUEVAMENTE>
 Superuser created successfully.
 ```
+
+## Ingresa a la página
+
+```http
+http://localhost
+```
+
+![alt](readmepics/home_page.png)
+
 ### Ingresar a la consola de administración
 
 ```http
