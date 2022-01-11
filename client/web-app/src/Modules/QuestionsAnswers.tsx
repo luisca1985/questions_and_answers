@@ -8,7 +8,7 @@ import moment from 'moment';
 const QuestionsAnswers: React.FC = () => {
     const questionId = useParams().id
 
-    const questionUrlAPI = `/api/questions/${ questionId }`
+    const questionUrlAPI = `/api/questions/${ questionId }/`
     const [questionTitle, setQuestionTitle] = useState('');
     const [questionDetail, setQuestionDetail] = useState('');
     const [questionCreated, setQuestionCreated] = useState('');
@@ -35,7 +35,7 @@ const QuestionsAnswers: React.FC = () => {
     //     }).then((data: IQuestion) => data && setQuestion(data))
     //   },[])
 
-    const answersUrlAPI = `/api/questions/${ questionId }/answers`
+    const answersUrlAPI = `/api/questions/${ questionId }/answers/`
     const [answerList, setAnswers] = useState([]);
     useEffect(()=>{
         fetch(answersUrlAPI).then(response => {

@@ -9,7 +9,7 @@ const QuestionsAnswersCreate: React.FC = () => {
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        await fetch(`/api/answers`,{
+        await fetch(`/api/answers/`,{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

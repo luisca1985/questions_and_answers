@@ -9,7 +9,7 @@ const QuestionsCreate = () => {
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        await fetch('/api/questions',{
+        await fetch('/api/questions/',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -22,7 +22,7 @@ const QuestionsCreate = () => {
     }
 
     if(redirect){
-        return <Navigate to={'/questions'}/>
+        return <Navigate to={'/questions/'}/>
     }
 
     return (
