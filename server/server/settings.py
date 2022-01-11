@@ -30,7 +30,7 @@ DEBUG = True
 # When we are working as API service with name 'service', and we are working
 # we are traying to connect from a client, which redirect to http://service:<PORT>
 # we need to allow 'server' as a host, otherwise django will generate a Bad Request 400
-ALLOWED_HOSTS = ['localhost','server']
+ALLOWED_HOSTS = ['localhost', 'server']
 
 
 # APPS
@@ -48,6 +48,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
+    # "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -94,7 +95,6 @@ WSGI_APPLICATION = 'server.wsgi.application'
 
 # Users and Authentication
 AUTH_USER_MODEL = 'users.User'
-
 
 
 # Database
@@ -171,6 +171,8 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
