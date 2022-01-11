@@ -7,4 +7,6 @@ export interface Question {
     is_resolved: boolean;
     is_closed: boolean;
     is_public: boolean;
+    created: Date;
+    modified: Date;
 }
