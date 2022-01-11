@@ -5,7 +5,7 @@ import { Question as IQuestion } from '../Interfaces/Questions';
 
 const Questions = () => {
     const [questionList, setQuestions] = useState([])
-    const url = '/api/questions'
+    const url = '/api/questions/'
     
     useEffect(()=>{
       fetch(url).then(response => {
