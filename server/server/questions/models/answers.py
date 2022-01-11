@@ -41,6 +41,9 @@ class Answer(QAModel):
         default=False,
         help_text='This is the correct answer select by the user who asked the question.'
     )
+    
+    REQUIRED_FIELDS=['question_to_answer ', 'answered_by', 'detail']
+
 
     # def __str__(self):
     # """Returns question's str representation"""
