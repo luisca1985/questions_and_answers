@@ -48,7 +48,7 @@ THIRD_PARTY_APPS = [
     "rest_framework",
     "rest_framework.authtoken",
     "corsheaders",
-    # "django_filters",
+    "django_filters",
 ]
 
 LOCAL_APPS = [
@@ -172,7 +172,7 @@ REST_FRAMEWORK = {
         # 'rest_framework.renderers.BrowsableAPIRenderer',
     ),
 
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend',]
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
