@@ -49,6 +49,8 @@ class Question(QAModel):
         help_text='The question has been hidden.'
     )
 
+    REQUIRED_FIELDS=['asked_by', 'title', 'detail']
+
     def __str__(self):
         """Returns question's str representation"""
         return str(self.title)
