@@ -31,6 +31,14 @@ Realizar la migración de los modelos
 ```
 docker-compose run --rm server python manage.py migrate
 ```
+## Ingresa a la página
+
+```http
+http://localhost
+```
+
+![alt](readmepics/home_page.png)
+
 
 ## Consola de Administración
 ### Crear el usurio de administración
@@ -49,14 +57,6 @@ Password: <INGRESA_CONTRASEÑA>
 Password (again): <INGRESA_CONTRASEÑA_NUEVAMENTE>
 Superuser created successfully.
 ```
-
-## Ingresa a la página
-
-```http
-http://localhost
-```
-
-![alt](readmepics/home_page.png)
 
 ### Ingresar a la consola de administración
 
