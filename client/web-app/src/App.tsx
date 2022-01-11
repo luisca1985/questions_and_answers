@@ -7,6 +7,8 @@ import Questions from './Modules/Questions';
 import {BrowserRouter, Routes, Route, Outlet} from "react-router-dom"
 import QuestionsCreate from './Modules/QuestionsCreate';
 import QuestionsAnswers from './Modules/QuestionsAnswers';
+import QuestionsAnswersCreate from './Modules/QuestionsAnswersCreate';
+import Home from './Modules/Home';
 
 function App() {
   return (
@@ -20,10 +22,10 @@ function App() {
       <main className="container">
         {/* <Display/> */}
           <Routes>
-            <Route path='/' element={ <Outlet /> }/>
+            <Route path='/' element={ <Home /> }/>
             <Route path='/questions' element= { <Questions />} />
             <Route path='/questions/create' element= { <QuestionsCreate />} />
-            <Route path='/questions/:id/answers' element= { <QuestionsAnswers />} />
+            <Route path='/questions/:id/answers' element= { <><QuestionsAnswers /> <QuestionsAnswersCreate /></>} />
           </Routes>
       </main>
     
