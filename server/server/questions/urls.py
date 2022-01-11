@@ -14,6 +14,6 @@ router.register(r'questions', QuestionViewSet,basename='question')
 router.register(r'answers', AnswerViewSet,basename='answer')
 
 urlpatterns = [
-    path('questions/<str:pk>/answers', AnswerViewSet.as_view({'get':'list_for_question',})),
+    path('questions/<str:pk>/answers/', AnswerViewSet.as_view({'get':'list_for_question',})),
     path('', include(router.urls))
 ]
