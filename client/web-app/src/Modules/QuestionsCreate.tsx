@@ -7,11 +7,16 @@ const QuestionsCreate = () => {
     const asked_by = 1;
     const [redirect,setRedirect] = useState(false);
 
+    const [token, setToken] = useState('')
+
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
         await fetch('/api/questions/',{
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${token}`
+            },
             body: JSON.stringify({
                 title,
                 detail,
@@ -42,6 +47,14 @@ const QuestionsCreate = () => {
                 </div>
                 <button className="btn btn-outline-secondary">Save</button>
             </form>
+            <hr/>
+            <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="basic-addon3">Authorization Token</span>
+                </div>
+                <input type="text" className="form-control" id="basic-url" 
+                aria-describedby="basic-addon3" onChange={e => setToken(e.target.value)} />
+            </div>
         </div>
     );
 };

@@ -13,6 +13,9 @@ from server.users.serializers import (
     UserLoginSerializer, 
     AccountVerificationAPIView)
 
+# Permissions
+from server.users.permissions import UserPermission
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """User view set.
@@ -21,6 +24,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
     queryset = User.objects.all()
     serializer_class = UserModelSerializer
+    permission_classes = (UserPermission,)
 
     @action(detail=False, methods=['post'])
     def login(self, request):
