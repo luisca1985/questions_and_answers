@@ -14,26 +14,17 @@ const QuestionsAnswers: React.FC = () => {
     const [questionCreated, setQuestionCreated] = useState('');
 
     useEffect(()=>{
-        (
-            async () =>{
-                const response = await fetch(questionUrlAPI);
-
-                const data = await response.json();
-                setQuestionTitle(data.title)
-                setQuestionDetail(data.detail)
-                setQuestionCreated(moment(data.created).format('MMMM D, YYYY'))
-            }
-        )();
-      },[])
-
-
-    // useEffect(()=>{
-    //     fetch(questionUrlAPI).then(response => {
-    //       if(response.status === 200){
-    //         return response.json()
-    //       }
-    //     }).then((data: IQuestion) => data && setQuestion(data))
-    //   },[])
+      fetch(questionUrlAPI).then((response)=>{
+        if(response.status === 200){
+          return response.json()
+        }
+      }).then((data)=>{
+        setQuestionTitle(data.title);
+        setQuestionDetail(data.detail);
+        setQuestionCreated(moment(data.created).format('MMMM D, YYYY'));
+      }
+      )
+    },[])
 
     const answersUrlAPI = `/api/questions/${ questionId }/answers/`
     const [answerList, setAnswers] = useState([]);
@@ -43,7 +34,7 @@ const QuestionsAnswers: React.FC = () => {
             return response.json()
           }
         }).then(data => setAnswers(data))
-      })
+      },[])
 
     return (
         <>
