@@ -5,13 +5,14 @@ const QuestionsCreate = () => {
     const [title, setTitle] = useState('');
     const [detail, setDetail] = useState('');
     const asked_by = 1;
-    const [redirect,setRedirect] = useState(false);
+    const [redirect, setRedirect] = useState(false);
 
+    // Provisional token
     const [token, setToken] = useState('')
-
+    // Provisional token end
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
-        await fetch('/api/questions/',{
+        await fetch('/api/questions/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,8 +27,8 @@ const QuestionsCreate = () => {
         setRedirect(true)
     }
 
-    if(redirect){
-        return <Navigate to={'/questions/'}/>
+    if (redirect) {
+        return <Navigate to={'/questions/'} />
     }
 
     return (
@@ -47,14 +48,16 @@ const QuestionsCreate = () => {
                 </div>
                 <button className="btn btn-outline-secondary">Save</button>
             </form>
-            <hr/>
+            <hr />
+            {/* Provisional token */}
             <div className="input-group mb-3">
                 <div className="input-group-prepend">
                     <span className="input-group-text" id="basic-addon3">Authorization Token</span>
                 </div>
-                <input type="text" className="form-control" id="basic-url" 
-                aria-describedby="basic-addon3" onChange={e => setToken(e.target.value)} />
+                <input type="text" className="form-control" id="basic-url"
+                    aria-describedby="basic-addon3" onChange={e => setToken(e.target.value)} />
             </div>
+            {/* Provisional token end */}
         </div>
     );
 };
