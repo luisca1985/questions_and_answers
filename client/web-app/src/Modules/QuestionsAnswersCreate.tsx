@@ -26,16 +26,23 @@ const QuestionsAnswersCreate: React.FC = () => {
                 answered_by
             })
         }).then(response => {
-            if (response.status){
+            if (response.status===201){
                 console.log(response.status);
                 setRedirect(true);
             }
         })
     }
+
+    // useEffect(() => {
+    //     effect
+    //     return () => {
+    //         <Navigate to={`/questions/${ questionId }/answers/`} />
+    //     }
+    // }, [input])
     
-    // if (redirect) {
-    //     return <Navigate to={`/questions/${ questionId }/answers/`} />
-    // }
+    if (redirect) {
+        return <Navigate to={`/questions/${ questionId }/answers/`} />
+    }
 
     return (
         <div>
